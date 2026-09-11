@@ -4,7 +4,7 @@
 
 Eine kleine, lokal laufende Browser-Anwendung, die beim Bereinigen deutschsprachiger Coaching-Transkripte hilft. Mehrere TXT- oder DOCX-Dateien auswählen, personenbezogene Angaben ersetzen, Ergebnisse durchsehen und speichern. Nach einmaliger Installation funktioniert die Verarbeitung ohne Internet und ohne Cloud-KI. Kein Konto, kein API-Schlüssel und kein Codex erforderlich.
 
-**Experimentelles Werkzeug zum Ausprobieren, keine garantierte Anonymisierung.** Die Erkennung kann Angaben übersehen oder falsch ersetzen. Auch Lebensgeschichten, Berufe und Beziehungen können Personen identifizierbar machen. Jeden Ergebnistext vor einer Weitergabe vollständig prüfen. Das Projekt ersetzt weder Datenschutzprüfung noch fachliche oder rechtliche Beratung.
+**Experimentelles Werkzeug zum Ausprobieren, keine garantierte Anonymisierung.** Die Transkript-Werkstatt ist eine unabhängige Anwendung auf Basis von Presidio und spaCy. Sie unterstützt beim Erkennen und Ersetzen personenbezogener Angaben. Vollständige Anonymität, Fehlerfreiheit oder datenschutzrechtliche Konformität werden nicht zugesichert. Ergebnisse können weiterhin personenbezogene Daten enthalten und müssen vor ihrer Verwendung oder Weitergabe vollständig geprüft werden. Die Erkennung kann Angaben übersehen oder falsch ersetzen. Auch Lebensgeschichten, Berufe und Beziehungen können Personen identifizierbar machen. Das Projekt ersetzt weder Datenschutzprüfung noch fachliche oder rechtliche Beratung.
 
 ## Was es kann
 

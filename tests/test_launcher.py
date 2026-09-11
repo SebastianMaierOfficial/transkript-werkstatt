@@ -71,7 +71,7 @@ class LauncherTests(unittest.TestCase):
                     state = current
                 request = urllib.request.Request(f"http://127.0.0.1:{state['port']}/health", headers={'X-Session': state['token']})
                 with http.open(request, timeout=5) as response:
-                    self.assertEqual(json.load(response)['version'], '1.0.1')
+                    self.assertEqual(json.load(response)['version'], '1.0.2')
             finally:
                 if state:
                     # Acquire the handle while the process is definitely alive;
