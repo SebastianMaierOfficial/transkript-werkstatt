@@ -1,0 +1,12 @@
+.venv/
+.runtime/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+*.log
+*.docx
+*.zip
+transkript-*.txt
+gepruefte-transkripte*
