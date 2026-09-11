@@ -17,7 +17,7 @@ LOCAL_HTTP = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 
 def alive():
     try:
-        state = json.loads(STATE.read_text())
+        state = json.loads(STATE.read_text(encoding='utf-8'))
         if not isinstance(state['port'], int) or not 1 <= state['port'] <= 65535:
             return None
         request = urllib.request.Request(f"http://127.0.0.1:{state['port']}/health", headers={'X-Session': state['token']})

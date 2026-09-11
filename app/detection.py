@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import unicodedata
 
-DATA = json.loads((Path(__file__).parent / 'names.json').read_text())
+DATA = json.loads((Path(__file__).parent / 'names.json').read_text(encoding='utf-8'))
 FIRST = {unicodedata.normalize('NFC', n).casefold() for n in DATA['first']}
 LAST = {unicodedata.normalize('NFC', n).casefold() for n in DATA['last']}
 # Words/names with frequent non-person uses. Context may still identify them.

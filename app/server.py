@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import secrets
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from socketserver import TCPServer
 import threading
 import unicodedata
 import xml.etree.ElementTree as ET
@@ -270,12 +271,20 @@ class Handler(BaseHTTPRequestHandler):
             self.reply(500, {'error': 'Verarbeitung fehlgeschlagen. Keine Ergebnisse gespeichert.'})
 
 
+class LoopbackServer(ThreadingHTTPServer):
+    def server_bind(self):
+        # HTTPServer's default calls getfqdn(), which can block on offline DNS.
+        TCPServer.server_bind(self)
+        self.server_name = 'localhost'
+        self.server_port = self.server_address[1]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--state', required=True, type=Path)
     args = parser.parse_args()
-    server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
     block_outgoing_network()
+    server = LoopbackServer(('127.0.0.1', 0), Handler)
     server.token = secrets.token_urlsafe(32)
     server.daemon_threads = True
     args.state.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
