@@ -216,7 +216,7 @@ class Handler(BaseHTTPRequestHandler):
         if not self.valid_host():
             return self.reply(403, {'error': 'Zugriff abgelehnt.'})
         if self.path == '/health' and self.authorized():
-            return self.reply(200, {'app': 'transkript-werkstatt', 'version': '1.0.0', 'model': 'de_core_news_lg 3.8.0', 'outgoing_network': 'blocked'})
+            return self.reply(200, {'app': 'transkript-werkstatt', 'version': '1.0.1', 'model': 'de_core_news_lg 3.8.0', 'outgoing_network': 'blocked'})
         files = {'/': ('index.html', 'text/html; charset=utf-8'), '/replacement.js': ('replacement.js','text/javascript; charset=utf-8'), '/app.js': ('app.js', 'text/javascript; charset=utf-8'), '/style.css': ('style.css', 'text/css; charset=utf-8')}
         if self.path not in files:
             return self.reply(404, {'error': 'Nicht gefunden.'})

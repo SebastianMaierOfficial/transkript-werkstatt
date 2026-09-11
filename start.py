@@ -23,7 +23,7 @@ def alive():
         request = urllib.request.Request(f"http://127.0.0.1:{state['port']}/health", headers={'X-Session': state['token']})
         with LOCAL_HTTP.open(request, timeout=1) as response:
             result = json.load(response)
-            if result.get('app') == 'transkript-werkstatt' and result.get('version') == '1.0.0':
+            if result.get('app') == 'transkript-werkstatt' and result.get('version') == '1.0.1':
                 return state
     except (OSError, ValueError, KeyError, TypeError):
         pass
